@@ -667,257 +667,220 @@ nav a.active {
 }
 
 .pricing-cards {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 24px;
-	margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 40px;
+    min-height: 800px; /* Prevents layout jumps when a card expands */
 }
 
 .price-card {
-	width: 374px;
-	border-radius: 20px;
-	overflow: hidden;
+    width: 374px;
+    height: 644px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.price-card-side {
-	height: 644px;
-	background-color: #ffffff;
-	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-}
-
-.price-card-middle {
-	height: 776px;
-	background-color: #54bd95;
-	position: relative;
-}
-
-.price-card-content {
-	padding: 40px 32px;
-	text-align: center;
-}
-
-.price-amount {
-	display: inline-flex;
-	align-items: flex-start;
-	margin: 16px auto 0;
-}
-
-.price-currency {
-	font-size: 16px;
-	font-weight: 600;
-	color: #191a15;
-	line-height: 1;
-	padding-top: 6px;
-}
-
-.price-value {
-	font-size: 56px;
-	font-weight: 700;
-	color: #191a15;
-	line-height: 1;
-}
-
-.price-card-middle .price-currency,
-.price-card-middle .price-value {
-	color: #ffffff;
-}
-
-.price-features-box {
-	width: 334px;
-	height: 330px;
-	border-radius: 10px;
-	margin: 0 auto;
-	z-index: 1;
-	position: relative;
-}
-
-.price-features-side {
-	background-color: #f9fafb;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.price-list-wrapper {
-	width: 260px;
-	height: 329px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 20px 0;
-}
-
-.price-list {
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
-}
-
-.price-list li {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	font-size: 14px;
-	font-weight: 500;
-	color: #333333;
-}
-
-.price-cta-btn {
-	width: 260px;
-	height: 64px;
-	border-radius: 20px;
-	border: none;
-	background-color: #ffffff;
-	box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.05);
-	color: #54bd95;
-	font-size: 16px;
-	font-weight: 600;
-	cursor: pointer;
-}
-
-.price-cta-btn:hover {
-	background-color: #f0faf6;
-}
-
-.price-cta-middle-btn {
-	width: 260px;
-	height: 64px;
-	border-radius: 20px;
-	border: none;
-	background-color: #54bd95;
-	box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.05);
-	color: #ffffff;
-	font-size: 16px;
-	font-weight: 600;
-	cursor: pointer;
-}
-
-.price-cta-middle-btn:hover {
-	opacity: 0.9;
-}
-
-.check-circle-white {
-	background-color: #ffffff;
-}
-
-.price-card-middle .price-value,
-.price-card-middle .price-currency {
-	color: #ffffff !important;
-}
-
-.price-features-middle .price-list li {
-	color: #333333;
-}
-
-.price-features-middle .price-list li .check-circle-white svg {
-	stroke: #ffffff;
-}
-
-.price-features-middle {
-	background-color: #ffffff;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.price-features-middle .price-list-wrapper {
-	width: 260px;
-	height: 329px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	padding: 20px 0;
-}
-
-.price-features-middle .price-list {
-	gap: 16px;
-}
-
-.price-features-middle .price-cta-middle-btn {
-	width: 260px;
-}
-
-.price-card-middle {
-	position: relative;
-	overflow: visible;
-	display: flex;
-	flex-direction: column;
+/* Hover effect triggers the green transformation */
+.price-card:hover {
+    height: 776px;
+    background-color: #54bd95;
 }
 
 .price-top-section {
-	position: relative;
-	overflow: hidden;
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 1;
 }
 
-.price-card-middle .price-card-content {
-	position: relative;
-	z-index: 1;
+.price-card-content {
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* The ellipse (hidden by default) */
+.price-hover-circle {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 146px;
+    left: -113px;
+    background-color: #6bc2a1;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.price-card:hover .price-hover-circle {
+    opacity: 1;
 }
 
 .price-save-badge {
-	width: 130px;
-	height: 40px;
-	background-color: #85dab9;
-	border-radius: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 12px auto 8px;
-	font-size: 14px;
-	font-weight: 600;
-	line-height: 30px;
-	letter-spacing: 0%;
-	color: #ffffff;
-	position: relative;
-	z-index: 1;
+    width: 130px;
+    height: 40px;
+    background-color: #85dab9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px auto 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
 }
 
-.price-middle-circle {
-	position: absolute;
-	width: 600px;
-	height: 600px;
-	top: 146px;
-	left: -113px;
-	background-color: #6bc2a1;
-	border-radius: 50%;
-	opacity: 1;
-	z-index: 0;
-}
-
+/* Smooth text color transitions */
 .price-plan {
-	font-size: 28px;
-	font-weight: 700;
-	color: #191a15;
-	margin-bottom: 12px;
-}
-
-.price-card-middle .price-plan,
-.price-card-middle .price-plan-desc {
-	color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    color: #191a15;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
 }
 
 .price-plan-desc {
-	font-size: 15px;
-	font-weight: 400;
-	color: #a6a6a6;
-	line-height: 24px;
-	width: 210px;
-	height: 54px;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    font-size: 15px;
+    font-weight: 400;
+    color: #a6a6a6;
+    line-height: 24px;
+    width: 251px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
 }
 
-.price-card-middle .price-plan-desc {
-	color: #ffffff;
-	width: 210px;
+.price-amount {
+    display: inline-flex;
+    align-items: flex-start;
+    margin: 16px auto 0;
 }
 
-.price-card-side:last-child .price-plan-desc {
-	width: 251px;
+.price-currency {
+    font-size: 16px;
+    font-weight: 600;
+    color: #191a15;
+    line-height: 1;
+    padding-top: 6px;
+    transition: color 0.3s ease;
+}
+
+.price-value {
+    font-size: 56px;
+    font-weight: 700;
+    color: #191a15;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+/* Applying white text on hover */
+.price-card:hover .price-plan,
+.price-card:hover .price-plan-desc,
+.price-card:hover .price-currency,
+.price-card:hover .price-value {
+    color: #ffffff;
+}
+
+.price-features-box {
+    width: 334px;
+    height: 330px;
+    border-radius: 10px;
+    margin: 0 auto 32px auto;
+    z-index: 2;
+    position: relative;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.price-card:hover .price-features-box {
+    background-color: #ffffff;
+}
+
+.price-list-wrapper {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.price-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.price-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+}
+
+/* Animating the checkmarks */
+.price-card .check-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background-color: #54bd95;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.price-card .check-icon svg {
+    transition: stroke 0.3s ease;
+}
+
+.price-card:hover .check-icon {
+    background-color: #ffffff;
+}
+
+.price-card:hover .check-icon svg {
+    stroke: #54bd95 !important;
+}
+
+/* Animating the CTA button */
+.price-cta-btn {
+    width: 260px;
+    height: 64px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 9px 0px rgba(0, 0, 0, 0.05);
+    color: #54bd95;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.price-card:hover .price-cta-btn {
+    background-color: #54bd95;
+    color: #ffffff;
 }
 
 .benefits {
