@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Apparel - Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrapper">
+    <header class="header">
+      <img src="./public/Combined Shape.svg" alt="Logo">
+      <div class="logo-text">BASE<br>APPAREL</div>
+    </header>
+
+    <div class="hero" aria-label="Portrait of a female model wearing an orange shirt">
+      <img src="./public/Bitmap.png" alt="">
+    </div>
+
+    <main class="content">
+      <h1>
+        <span class="title-light">WE'RE</span>
+        <span class="title-dark">COMING SOON</span>
+      </h1>
+      
+      <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
+      
+      <form class="email-form" onsubmit="event.preventDefault();">
+        <div class="input-group">
+          <input type="email" placeholder="Email Address" required>
+          
+          <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="12" fill="#EE8B8B"/>
+            <path d="M12 7v6m0 4h.01" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <button type="submit" class="submit-btn" aria-label="Submit email address">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20">
+              <path fill="none" stroke="#FFF" stroke-width="2" d="M1 1l8.836 8.836L1 18.671"/>
+            </svg>
+          </button>
+        </div>
+        <div class="error-msg">Please provide a valid email</div>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>
